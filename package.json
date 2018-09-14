@@ -7,7 +7,11 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build:ssr": "npm run build:client-and-server-bundles && npm run webpack:server",
+    "serve:ssr": "node dist/server",
+    "build:client-and-server-bundles": "ng build --prod && ng run GeneratedApp:server",
+    "webpack:server": "webpack --config webpack.server.config.js --progress --colors"
   },
   "private": true,
   "dependencies": {
@@ -19,9 +23,19 @@
     "@angular/http": "^6.1.0",
     "@angular/platform-browser": "^6.1.0",
     "@angular/platform-browser-dynamic": "^6.1.0",
+    "@angular/platform-server": "^6.1.7",
     "@angular/router": "^6.1.0",
+    "@angular/service-worker": "^6.1.7",
+    "@ng-toolkit/universal": "^1.1.41-beta.110",
+    "@nguniversal/express-engine": "^6.1.0",
+    "@nguniversal/module-map-ngfactory-loader": "^6.1.0",
     "core-js": "^2.5.4",
+    "jquery": "^3.2.1",
+    "js-cookie": "^2.2.0",
     "rxjs": "~6.2.0",
+    "sweetalert2": "^7.26.28",
+    "toastr": "^2.1.4",
+    "ts-loader": "^5.1.0",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
@@ -31,6 +45,9 @@
     "@angular/language-service": "^6.1.0",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/jquery": "^3.3.6",
+    "@types/js-cookie": "^2.2.0",
+    "@types/lodash": "^4.14.116",
     "@types/node": "~8.9.4",
     "codelyzer": "~4.3.0",
     "jasmine-core": "~2.99.1",
@@ -43,6 +60,7 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "~2.9.2"
+    "typescript": "~2.9.2",
+    "webpack-cli": "^3.1.0"
   }
 }

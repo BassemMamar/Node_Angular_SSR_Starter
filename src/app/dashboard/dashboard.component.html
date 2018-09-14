@@ -1,0 +1,14 @@
+  <h1>DashBoard!</h1>
+  
+<ul>
+  <li>
+    <a [routerLink]="['/home']" routerLinkActive="active">Home</a>
+  </li>
+  <li>
+    <a [routerLink]="['/NewHome']" routerLinkActive="active">NewHome</a>
+  </li>
+  
+</ul>
+
+  <shrd-alert [id]="'root'"></shrd-alert>
+  <router-outlet></router-outlet>
