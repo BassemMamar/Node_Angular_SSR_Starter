@@ -13,13 +13,13 @@ export class NewHomeComponent implements OnInit {
   constructor(
     private logger: LoggerService,
     private dashboardService: DashboardService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.dashboardService.getPosts().subscribe(x => this.posts = x);
   }
 
-  onClickMe() {
-    this.logger.log('tests');
+  logMe() {
+    this.logger.log('Current Datetime: ' + Date.now());
   }
 }
